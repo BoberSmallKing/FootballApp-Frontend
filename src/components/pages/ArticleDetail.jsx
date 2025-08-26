@@ -30,7 +30,7 @@ const ArticleDetail = () => {
       </div>
       <img
         className="article-image"
-        src={`http://localhost:7000${article.image}`}
+        src={`https://footballapp-backend-p73s.onrender.com${article.image}`}
         alt={article.title}
       />
       <div

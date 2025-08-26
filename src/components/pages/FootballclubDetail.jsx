@@ -23,7 +23,7 @@ const FootballclubDetail = () => {
       <Box sx={{ display: "flex", alignItems: "center", gap: 3, mb: 3 }}>
         {footballclub.logo && (
           <img
-            src={`http://localhost:7000${footballclub.logo}`}
+            src={`https://footballapp-backend-p73s.onrender.com${footballclub.logo}`}
             style={{ width: 100, height: 100, objectFit: "contain" }}
           />
         )}
@@ -53,9 +53,7 @@ const FootballclubDetail = () => {
       <Typography variant="subtitle1">
         Лига: {footballclub.league_details?.name}
       </Typography>
-      <Typography variant="subtitle1">
-        Город: {footballclub.city}
-      </Typography>
+      <Typography variant="subtitle1">Город: {footballclub.city}</Typography>
       <Typography variant="subtitle1">
         Посещаемость: {footballclub.attendance}
       </Typography>
