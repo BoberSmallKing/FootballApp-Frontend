@@ -26,7 +26,7 @@ export default function ArticleCard({ options }) {
         <CardMedia
           component="img"
           height="140"
-          image={`https://footballapp-backend-p73s.onrender.com${options.image}`}
+          image={options.image}
           alt={options.title || "Изображение статьи"}
         />
         <CardContent
