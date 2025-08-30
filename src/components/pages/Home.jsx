@@ -3,7 +3,7 @@ import { Box, Chip, IconButton, Typography } from "@mui/material";
 import { Link, useParams, useNavigate } from "react-router";
 import CalendarViewMonthIcon from "@mui/icons-material/CalendarViewMonth";
 import { MaterialReactTable } from "material-react-table";
-import { MRT_Localization_RU } from "mantine-react-table/locales/ru";
+import { MRT_Localization_RU } from "material-react-table/locales/ru";
 import AxiosInstance from "../../Axios";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
