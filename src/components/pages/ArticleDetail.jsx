@@ -28,11 +28,7 @@ const ArticleDetail = () => {
           })}
         </span>
       </div>
-      <img
-        className="article-image"
-        src={`http://localhost:7000${article.image}`}
-        alt={article.title}
-      />
+      <img className="article-image" src={article.image} alt={article.title} />
       <div
         className="article-body"
         dangerouslySetInnerHTML={{ __html: article.body }}

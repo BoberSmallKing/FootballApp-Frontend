@@ -23,7 +23,7 @@ const FootballclubDetail = () => {
       <Box sx={{ display: "flex", alignItems: "center", gap: 3, mb: 3 }}>
         {footballclub.logo && (
           <img
-            src={`http://localhost:7000${footballclub.logo}`}
+            src={footballclub.logo}
             style={{ width: 100, height: 100, objectFit: "contain" }}
           />
         )}
