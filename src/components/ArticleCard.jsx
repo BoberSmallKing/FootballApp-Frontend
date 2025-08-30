@@ -26,7 +26,7 @@ export default function ArticleCard({ options }) {
         <CardMedia
           component="img"
           height="140"
-          image={options.image}
+          image={`http://localhost:7000${options.image}`}
           alt={options.title || "Изображение статьи"}
         />
         <CardContent

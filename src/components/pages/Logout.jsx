@@ -23,7 +23,6 @@ const Logout = () => {
           });
         }
       } catch (e) {
-        console.log("Logout API error:", e);
       } finally {
         // Всегда очищаем локальные данные
         localStorage.clear();

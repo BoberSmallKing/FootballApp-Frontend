@@ -26,11 +26,12 @@ const Login = () => {
           password: values.password,
         });
 
-        const { access, refresh } = response.data;
+        const { access, refresh, user } = response.data;
 
         localStorage.clear();
         localStorage.setItem("access_token", access);
         localStorage.setItem("refresh_token", refresh);
+        localStorage.setItem("is_staff", user.is_staff);
 
         AxiosInstance.defaults.headers.common[
           "Authorization"

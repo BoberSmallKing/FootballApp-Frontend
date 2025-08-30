@@ -29,7 +29,6 @@ const Edit = () => {
     city: "",
     characteristic: [],
   });
-  console.log("My data", myData);
   const navigate = useNavigate();
 
   const GetData = () => {
@@ -92,8 +91,6 @@ const Edit = () => {
       });
     },
   });
-
-  console.log("Form values", formik.values);
 
   return (
     <div>

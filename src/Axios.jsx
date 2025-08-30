@@ -65,7 +65,6 @@ AxiosInstance.interceptors.response.use(
       } catch (refreshError) {
         localStorage.removeItem("access_token");
         localStorage.removeItem("refresh_token");
-        console.log("Token refresh failed:", refreshError);
       }
     }
 

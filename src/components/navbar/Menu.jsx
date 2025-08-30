@@ -20,6 +20,7 @@ export default function Menu() {
   const [open, setOpen] = React.useState(true);
   const [leagues, setLeagues] = useState([]);
   const [isAuth, setIsAuth] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {});
 
@@ -33,8 +34,12 @@ export default function Menu() {
     if (localStorage.getItem("access_token") !== null) {
       setIsAuth(true);
     }
+    const isStaff = localStorage.getItem("is_staff") === "true";
+    setIsAdmin(isStaff);
     GetData();
   }, []);
+
+  console.log(isAdmin);
 
   const handleClick = () => {
     setOpen(!open);
@@ -42,7 +47,6 @@ export default function Menu() {
 
   const location = useLocation();
   const path = location.pathname;
-  console.log(path);
 
   return (
     <>
@@ -59,6 +63,7 @@ export default function Menu() {
           <ListItemText primary="Все клубы" />
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
+
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
             {leagues.map((league) => (
@@ -78,18 +83,20 @@ export default function Menu() {
           </List>
         </Collapse>
 
-        <ListItemButton
-          component="div"
-          onClick={() => {
-            checkLoginLink(isAuth, navigate, "/create_club");
-          }}
-          selected={path === "/create_club"}
-        >
-          <ListItemIcon>
-            <AddBoxIcon />
-          </ListItemIcon>
-          <ListItemText primary="Создать клуб" />
-        </ListItemButton>
+        {isAdmin && (
+          <ListItemButton
+            component="div"
+            onClick={() => {
+              checkLoginLink(isAuth, navigate, "/create_club");
+            }}
+            selected={path === "/create_club"}
+          >
+            <ListItemIcon>
+              <AddBoxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Создать клуб" />
+          </ListItemButton>
+        )}
 
         <ListItemButton
           component="div"
@@ -103,6 +110,7 @@ export default function Menu() {
           </ListItemIcon>
           <ListItemText primary="Создать статью" />
         </ListItemButton>
+
         <ListItemButton
           component={Link}
           to="/articles"

@@ -75,9 +75,11 @@ const Create = () => {
       formData.append("attendance", values.attendance);
       formData.append("city", values.city);
       formData.append("characteristic", values.characteristic);
-      AxiosInstance.post(`footballclub/`, formData, {headers: {
+      AxiosInstance.post(`footballclub/`, formData, {
+        headers: {
           "Content-Type": "multipart/form-data",
-        },}).then(() => {
+        },
+      }).then(() => {
         setMessage(
           <MyMessage
             messageText={"Вы успешно отправили данные в базу данных!"}
@@ -90,8 +92,6 @@ const Create = () => {
       });
     },
   });
-
-  console.log("Form values", formik.values);
 
   return (
     <div>
@@ -215,13 +215,13 @@ const Create = () => {
               }
             />
             <input
-                type="file"
-                name="logo"
-                accept="image/*"
-                onChange={(event) => {
-                  formik.setFieldValue("logo", event.currentTarget.files[0]);
-                }}
-              />
+              type="file"
+              name="logo"
+              accept="image/*"
+              onChange={(event) => {
+                formik.setFieldValue("logo", event.currentTarget.files[0]);
+              }}
+            />
           </Box>
         </Box>
       </form>

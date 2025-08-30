@@ -22,8 +22,6 @@ const Delete = () => {
     characteristic: [],
   });
 
-  console.log("My data", myData);
-
   const GetData = () => {
     AxiosInstance.get(`footballclub/${MyId}/`).then((res) => {
       setMyData(res.data);

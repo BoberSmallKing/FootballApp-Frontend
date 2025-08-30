@@ -8,12 +8,14 @@ import ArticleIcon from "@mui/icons-material/Article";
 import CreateIcon from "@mui/icons-material/Create";
 import { Link, useLocation, useNavigate } from "react-router";
 import checkLoginLink from "../../SimpleFunctions";
+
 export default function ShortMenu() {
   const location = useLocation();
   const path = location.pathname;
   const navigate = useNavigate();
 
   const isAuth = localStorage.getItem("access_token") !== null;
+  const isAdmin = localStorage.getItem("is_staff") === "true";
 
   return (
     <>
@@ -32,19 +34,20 @@ export default function ShortMenu() {
             <DashboardIcon />
           </ListItemIcon>
         </ListItemButton>
-
-        <ListItemButton
-          component="div"
-          onClick={() => {
-            checkLoginLink(isAuth, navigate, "/create_club");
-          }}
-          selected={path === "/create_club"}
-          sx={{ display: "flex", justifyContent: "center" }}
-        >
-          <ListItemIcon sx={{ display: "flex", justifyContent: "center" }}>
-            <AddBoxIcon />
-          </ListItemIcon>
-        </ListItemButton>
+        {isAdmin && (
+          <ListItemButton
+            component="div"
+            onClick={() => {
+              checkLoginLink(isAuth, navigate, "/create_club");
+            }}
+            selected={path === "/create_club"}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
+            <ListItemIcon sx={{ display: "flex", justifyContent: "center" }}>
+              <AddBoxIcon />
+            </ListItemIcon>
+          </ListItemButton>
+        )}
 
         <ListItemButton
           component="div"

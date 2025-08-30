@@ -8,8 +8,6 @@ import ArticleIcon from "@mui/icons-material/Article";
 const Article = () => {
   const [articles, setArticles] = useState([]);
 
-  console.log("Article", articles);
-
   const GetData = () => {
     AxiosInstance.get(`blog/article/`).then((res) => {
       setArticles(res.data);
