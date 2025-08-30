@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Box, Chip, IconButton, Typography } from "@mui/material";
 import { Link, useParams, useNavigate } from "react-router";
 import CalendarViewMonthIcon from "@mui/icons-material/CalendarViewMonth";
-import { MaterialReactTable } from "material-react-table";
+import { MaterialReactTable, MRT_Localization_RU } from "material-react-table";
 import AxiosInstance from "../../Axios";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -45,7 +45,6 @@ const Home = () => {
       },
     ];
 
-    // Добавляем колонку действий только если админ
     if (isAdmin) {
       baseColumns.push({
         id: "actions",
@@ -60,7 +59,6 @@ const Home = () => {
             >
               <EditIcon />
             </IconButton>
-
             <IconButton
               color="error"
               component={Link}
@@ -89,7 +87,8 @@ const Home = () => {
       <MaterialReactTable
         columns={columns}
         data={myData}
-        enableRowActions={false} // rowActions полностью выключены
+        enableRowActions={false}
+        localization={MRT_Localization_RU} // ✅ переводим таблицу
         muiTableBodyRowProps={({ row }) => ({
           onClick: () => navigate(`/footballclub/${row.original.id}`),
           style: { cursor: "pointer" },
